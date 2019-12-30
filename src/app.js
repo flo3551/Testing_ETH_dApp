@@ -1,9 +1,11 @@
 App = {
     contracts: {},
+    loading: false,
     load: async () => {
         await App.loadWeb3();
         await App.loadAccount();
         await App.loadContract();
+        await App.render();
     },
     loadWeb3: async () => {
         if (typeof web3 !== 'undefined') {
@@ -47,6 +49,61 @@ App = {
 
         // Retrieve Smartcontract currently deployed on blockchain
         App.files = await App.contracts.Files.deployed();
+    },
+    render: async () => {
+        if (App.loading) {
+            return;
+        }
+
+        App.setLoading(true);
+        $("#account").html(App.account);
+        await App.renderFiles();
+        App.setLoading(false);
+    },
+    renderFiles: async () => {
+        const filesCount = await App.files.filesCount();
+        const $fileTemplate = $('.fileTemplate');
+        console.log(filesCount);
+        for (var i=1; i<=filesCount; i++) {
+            const file = await App.files.files(i);
+            const isPrivateFile = file[2];
+            const templateToRender = App.prepareFileTemplate($fileTemplate, file);
+
+            if (isPrivateFile) {
+                $('#fileList').append(templateToRender);
+            } else {
+                $('#nonPrivateFileList').append(templateToRender);
+            }
+            console.log(templateToRender);
+            templateToRender.show();
+        }
+
+    },
+    prepareFileTemplate(template, file) {
+        const fileId = file[0].toNumber();
+        const fileContent = file[1];
+        const isPrivateFile = file[2];
+        const $newTemplate = template.clone();
+        $newTemplate.find('.content').html(fileContent);
+        $newTemplate.find('input')
+            .prop('name', fileId)
+            .prop('checked', isPrivateFile);
+            // .on('click', App.togglePrivateFile)
+        return $newTemplate;
+    },
+    setLoading: (boolean) => {
+        App.loading = boolean;
+
+        const loader = $("#loader");
+        const content = $("#content");
+
+        if (boolean) {
+            loader.show();
+            content.hide();
+        } else {
+            loader.hide();
+            content.show();
+        }
     }
 }
 

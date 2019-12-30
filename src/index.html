@@ -8,6 +8,7 @@
     <title>Dapp Testing | Decentralized Cloud</title>
 
     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="app.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,26 +16,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <style>
-      main {
-        margin-top: 60px;
-      }
-      #content {
-        display: none;
-      }
-      form {
-        width: 350px;
-        margin-bottom: 10px;
-      }
-      ul {
-        margin-bottom: 0px;
-      }
-      #completedTaskList .content {
-        color: grey;
-        text-decoration: line-through;
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -58,13 +39,12 @@
             </form>
             <ul id="fileList" class="list-unstyled">
               <div class="fileTemplate" class="checkbox" style="display: none">
-                <label>
-                  <input type="checkbox" />
-                  <span class="content">File content goes here...</span>
-                </label>
+                <input id="isPrivateControl" type="checkbox" />
+                <label for="isPrivateControl">Garder ce fichier privé</label>
+                <p class="content">File content goes here...</p>
               </div>
             </ul>
-            <ul id="completedFileList" class="list-unstyled">
+            <ul id="nonPrivateFileList" class="list-unstyled">
             </ul>
           </div>
         </main>

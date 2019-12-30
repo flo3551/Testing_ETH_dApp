@@ -1,0 +1,31 @@
+main {
+    margin-top: 60px;
+}
+
+#content {
+    display: none;
+}
+
+form {
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-bottom: 0px;
+}
+
+.fileTemplate {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px ridge;
+}
+
+.fileTemplate p {
+    padding-top: 5px;
+    border-top: 1px ridge;
+}
+
+#nonPrivateFileList .content {
+    color: grey;
+}
