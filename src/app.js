@@ -50,6 +50,16 @@ App = {
         // Retrieve Smartcontract currently deployed on blockchain
         App.files = await App.contracts.Files.deployed();
     },
+    createFile: async () => {
+        App.setLoading(true);
+        const fileContent = $("#newFile").val();
+
+        const result = await App.files.createFile(fileContent);
+        const fileInfos = result.logs[0].args;
+        const file = [fileInfos.id, fileInfos.base64content, fileInfos.isPrivate]
+        await App.renderFile(file);
+        App.setLoading(false);
+    },
     render: async () => {
         if (App.loading) {
             return;
@@ -62,34 +72,48 @@ App = {
     },
     renderFiles: async () => {
         const filesCount = await App.files.filesCount();
-        const $fileTemplate = $('.fileTemplate');
-        console.log(filesCount);
-        for (var i=1; i<=filesCount; i++) {
-            const file = await App.files.files(i);
-            const isPrivateFile = file[2];
-            const templateToRender = App.prepareFileTemplate($fileTemplate, file);
 
-            if (isPrivateFile) {
-                $('#fileList').append(templateToRender);
-            } else {
-                $('#nonPrivateFileList').append(templateToRender);
-            }
-            console.log(templateToRender);
-            templateToRender.show();
+        for (var i = 1; i <= filesCount; i++) {
+            const file = await App.files.files(i);
+            await App.renderFile(file);
         }
 
     },
-    prepareFileTemplate(template, file) {
+    renderFile: async (file) => {
+        const isPrivateFile = file[2];
+        const templateToRender = App.prepareFileTemplate(file);
+
+        if (isPrivateFile) {
+            $('#fileList').append(templateToRender);
+        } else {
+            $('#nonPrivateFileList').append(templateToRender);
+        }
+
+        templateToRender.show();
+    },
+    prepareFileTemplate(file) {
+        const $fileTemplate = $('#fileTemplate');
         const fileId = file[0].toNumber();
         const fileContent = file[1];
         const isPrivateFile = file[2];
-        const $newTemplate = template.clone();
+        const $newTemplate = $fileTemplate.clone();
+
         $newTemplate.find('.content').html(fileContent);
         $newTemplate.find('input')
             .prop('name', fileId)
-            .prop('checked', isPrivateFile);
-            // .on('click', App.togglePrivateFile)
+            .prop('checked', isPrivateFile)
+            .on('click', App.togglePrivateFile);
         return $newTemplate;
+    },
+    togglePrivateFile: async (event) => {
+        App.setLoading(true);
+        const fileId = event.target.name;
+        const result = await App.files.togglePrivateFile(fileId)
+        const fileInfos = result.logs[0].args;
+        const file = [fileInfos.id, fileInfos.base64content, fileInfos.isPrivate];
+        App.setLoading(false);
+
+        await App.render();
     },
     setLoading: (boolean) => {
         App.loading = boolean;
