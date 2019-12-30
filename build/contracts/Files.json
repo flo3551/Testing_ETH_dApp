@@ -1,0 +1,283 @@
+{
+  "contractName": "Files",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "filesCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "id",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"filesCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"id\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/fdealmeida/Documents/Perso/Blockchain/Test/contracts/Files.sol\":\"Files\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/fdealmeida/Documents/Perso/Blockchain/Test/contracts/Files.sol\":{\"keccak256\":\"0x16f57872fa3c425f813e7e608971f2e95f43595893084c492af66b4d57a3c62d\",\"urls\":[\"bzz-raw://c29eda251942137d9d77fbc4bab61f874bf8cd95dcae96bb2e7bb3e77facce4f\",\"dweb:/ipfs/QmNVZUQVcYrc2q427vtuax4GCE86VR766wts7EyCkjCENr\"]}},\"version\":1}",
+  "bytecode": "0x608060405260008055348015601357600080fd5b506096806100226000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063af640d0f146037578063dfb5e9ba14604f575b600080fd5b603d6055565b60408051918252519081900360200190f35b603d605b565b60015481565b6000548156fea265627a7a7231582012f41ff1fe8d2bfe2ccfa2afb3224616fa9a497d10045f58719f9bd3e2bcbe4064736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063af640d0f146037578063dfb5e9ba14604f575b600080fd5b603d6055565b60408051918252519081900360200190f35b603d605b565b60015481565b6000548156fea265627a7a7231582012f41ff1fe8d2bfe2ccfa2afb3224616fa9a497d10045f58719f9bd3e2bcbe4064736f6c634300050c0032",
+  "sourceMap": "28:73:0:-;;;75:1;50:26;;28:73;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:73:0;;;;;;;",
+  "deployedSourceMap": "28:73:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:73:0;;;;;;;;;;;;;;;;;;;;;;;;83:14;;;:::i;:::-;;;;;;;;;;;;;;;;50:26;;;:::i;83:14::-;;;;:::o;50:26::-;;;;:::o",
+  "source": "pragma solidity ^0.5.11;\r\n\r\ncontract Files {\r\n    uint public filesCount = 0;\r\n    uint public id;\r\n}",
+  "sourcePath": "C:/Users/fdealmeida/Documents/Perso/Blockchain/Test/contracts/Files.sol",
+  "ast": {
+    "absolutePath": "/C/Users/fdealmeida/Documents/Perso/Blockchain/Test/contracts/Files.sol",
+    "exportedSymbols": {
+      "Files": [
+        7
+      ]
+    },
+    "id": 8,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7,
+        "linearizedBaseContracts": [
+          7
+        ],
+        "name": "Files",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4,
+            "name": "filesCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 7,
+            "src": "50:26:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "50:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 3,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "75:1:0",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 6,
+            "name": "id",
+            "nodeType": "VariableDeclaration",
+            "scope": 7,
+            "src": "83:14:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 5,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "83:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8,
+        "src": "28:73:0"
+      }
+    ],
+    "src": "0:101:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/fdealmeida/Documents/Perso/Blockchain/Test/contracts/Files.sol",
+    "exportedSymbols": {
+      "Files": [
+        7
+      ]
+    },
+    "id": 8,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".11"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7,
+        "linearizedBaseContracts": [
+          7
+        ],
+        "name": "Files",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4,
+            "name": "filesCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 7,
+            "src": "50:26:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "50:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 3,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "75:1:0",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 6,
+            "name": "id",
+            "nodeType": "VariableDeclaration",
+            "scope": 7,
+            "src": "83:14:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 5,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "83:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8,
+        "src": "28:73:0"
+      }
+    ],
+    "src": "0:101:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x7c83af8318Aa291878000406A055553C18cca6FD",
+      "transactionHash": "0x473f109aa4481fa9bf1bf5eb1211f7825a4f031fa4dbe515032200077f96e8d4"
+    }
+  },
+  "schemaVersion": "3.0.20",
+  "updatedAt": "2019-12-30T09:59:15.458Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
